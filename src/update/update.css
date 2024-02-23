@@ -1,0 +1,13 @@
+.main{
+    width: 400px;
+    height: 100px;
+    margin: auto;
+}
+
+.mybtn{
+    background-color: yellow;
+    border: none;
+    padding: 3px 150px;
+    color: blue;
+    font-weight: bold;
+}
