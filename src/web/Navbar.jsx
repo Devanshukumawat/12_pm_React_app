@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import "./navbar.css"
-import ButtonUsage from "../ButtonUsage";
+
 
 
 function Navbar() {
     return ( 
         <>
-         <ButtonUsage/>
         <div className="main">
             <ul className="nav">
                 <li ><Link to={'/'} className="hyperLink">Home</Link></li>
@@ -18,8 +17,10 @@ function Navbar() {
                 <li><Link to={"/form"} className="hyperLink">Form</Link></li>
                 <li><Link to={"/signin"} className="hyperLink">Sign in</Link></li>
             </ul>
+
           
-        </div>    
+        </div>   
+        <Link style={{color:"black"}}>Hello</Link> 
         </>
      );
 }

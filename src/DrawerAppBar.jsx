@@ -14,21 +14,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {Link} from "react-router-dom"
-
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-// const navItems = ['Home', 'About', 'Contact',"To-do","Form","Counter","Card"];
-
 const navItems = [
-  {Navitem:"Home",url:"/home"},
-  {Navitem:"About",url:"/about"},
-  {Navitem:"Contact",url:"/contact"},
-  {Navitem:"To-do",url:"/todo"},
-  {Navitem:"Form",url:"/form"},
-  {Navitem:"Counter",url:"/counter"}
-
-]
+  {name:"Home",url:"/home"},
+  {name:"About",url:"/about"},
+  {name:"To-do",url:"/todo"},
+  {name:"MUI",url:"/mui"},
+  {name:"UseRef",url:"/useRef"}
+];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -46,11 +41,20 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <Link to={`${item.url}`} style={{textDecoration:"none"}}>
+          <ListItem key={item.name} disablePadding>
+          
+            
+
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.Navitem} />
+            
+            <ListItemText primary={item.name} />
+           
+              
             </ListItemButton>
+           
           </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -75,16 +79,15 @@ function DrawerAppBar(props) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block',textDecoration:"none", color:"inherit" } }}
-            
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-          <Link to={"/home"}>MUI</Link>
+            MUI
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Link to={`${item.url}`}>
-              <Button  sx={{ color: '#fff' }}>
-                {item.Navitem}
+              <Button key={item} sx={{ color: '#fff' }}>
+                {item.name}
               </Button>
               </Link>
             ))}
@@ -108,7 +111,9 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
-      
+      <Box component="main" sx={{ p: 3 }}>
+        <Toolbar />
+      </Box>
     </Box>
   );
 }

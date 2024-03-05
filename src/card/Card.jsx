@@ -8,8 +8,6 @@ import twitter from "./media/twitter-icon.png"
 function Card (props){
     console.log(props)
 
-    let myData = ["Devanshu","Manny","Kizie"]
-
     return(
         <>
             <div className="card">

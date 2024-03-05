@@ -7,7 +7,7 @@ function Task() {
 
     useEffect(()=>{
         console.log("useeffect hook")
-    })
+    },[name])
 
     function handleUpdate(){
         setValue(value+1)
